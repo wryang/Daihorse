@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="daihorse.entity.FriendRequest" table="FRIENDREQUESTS">
+		<id name="id" type="string" column="ID" length="32">
+		<generator class="uuid.hex"/>
+		</id>
+		<many-to-one name="requestUser" class="daihorse.entity.User" column="REQUESTUSER_ID" lazy="false"/>
+		<many-to-one name="targetUser" class="daihorse.entity.User" column="TARGETUSER_ID"  lazy="false"/>
+		<property name="extraInfo" column="EXTRAINFO" type="string" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+  <class name="daihorse.entity.User" table="USERS" batch-size="5">
+      <meta attribute="class-description">
+      Represents a single customer.
+      @author Justin Yang
+      </meta>
+    
+      <meta attribute="class-scope">public</meta>
+    
+      <id name="id" type="string" column="ID" length="32">
+        <meta attribute="scope-set">private</meta>
+        <generator class="uuid.hex"/>
+      </id>
+	
+	  <property name="username" type="string" >
+        <column name="USERNAME" length="15" not-null="true" unique="true" />
+      </property>
+
+	  <property name="password" type="string">
+		<column name="PASSWORD" not-null="true" />
+	  </property>
+	  
+	  <property name="name" type="string">
+		  <column name="NAME" />
+	  </property>
+		  
+	  <property name="manager" type="boolean" column="MANAGER" />
+	  <property name="identity" type="int" column="IDENTITY" />	  
+	  <property name="hobby" type="string" column="HOBBY" />
+	  <property name="email" type="string" column="EMAIL" />
+	  <property name="phone" type="string" column="PHONE" />
+  
+	  <set name="workplans" cascade="delete" inverse="true" lazy="true" batch-size="5">
+		<key column="USER_ID" />
+		<one-to-many class="daihorse.entity.WorkPlan" />
+	  </set> 
+	     
+	  <set name="worklogs" cascade="delete" inverse="true" lazy="true" order-by="TIME asc" batch-size="8">
+		<key column="USER_ID" />
+		<one-to-many class="daihorse.entity.Worklog" />
+	  </set>
+	  
+	  <set name="contacts" inverse="true" lazy="true" batch-size="5">
+		  <key column="OWNER_ID"/>
+		  <one-to-many class="daihorse.entity.Contact" />
+	  </set>
+	  
+	  <component name="workplanAuthPolicy" class="daihorse.entity.WorkPlanAuthPolicy" lazy="false" update="true">
+		<parent name="user"/>
+		<property name="workPlanAttri" column="WORKPLANATTRI" type="string" />
+		<property name="workPlanValue" column="WORKPLANVALUE" type="string" />
+		<property name="contactAttri" column="CONTACTATTRI" type="string" />
+		<property name="contactValue" column="CONTACTVALUE" type="string" />
+	  </component>
+	  
+  </class>
+ 
+</hibernate-mapping>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+  <class name="daihorse.entity.WorkPlan" table="WORKPLANS" >
+    <meta attribute="class-description">
+      Represents a single workplan.
+      @author Justin Yang
+    </meta>
+    
+    <meta attribute="class-scope">public</meta>
+    
+    <id name="id" type="string" column="ID" length="32" >
+      <meta attribute="scope-set">private</meta>
+      <generator class="uuid.hex"/>
+    </id>
+	
+	<many-to-one name="user" column="USER_ID" class="daihorse.entity.User" lazy=" false" />
+	  
+	<property name="title" type="string">
+		<column name="TITLE" not-null="true" />
+	</property>
+	  
+	<property name="startTime" type="calendar" >
+        <column name="STARTTIME" not-null="true" />
+    </property>
+	  
+	<property name="endTime" type="calendar" >
+		<column name="ENDTIME" not-null="true" />
+	</property>
+	  
+	<property name="description" type="string" >
+		<column name="DESCRIPTION" length="100" />
+	</property>
+     	
+	<property name="urgencyLevel" type="int">
+		<column name="URGENCYLEVEL" />
+	</property>
+	  
+	<property name="importanceLevel" type="int" >
+		<column name="IMPORTANCELEVEL" />
+	</property>
+	  
+	<property name="state" type="int" >
+		<column name="STATE" />
+	</property>
+
+	  
+  </class>
+ 
+</hibernate-mapping> 

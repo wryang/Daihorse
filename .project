@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Daihorse</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>doc</name>
+			<type>2</type>
+			<location>G:/SE Project/trunk/doc</location>
+		</link>
+		<link>
+			<name>lib</name>
+			<type>2</type>
+			<location>G:/SE Project/trunk/lib</location>
+		</link>
+		<link>
+			<name>src</name>
+			<type>2</type>
+			<location>G:/SE Project/trunk/src</location>
+		</link>
+	</linkedResources>
+</projectDescription>

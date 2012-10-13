@@ -1,0 +1,29 @@
+#language configuration for DaiHorse Work Assistance System
+#language: English
+#created: 2010-11-20
+#by: kavinyao
+
+# Login window
+login_window_title=\u69d1\u9a6c\u5de5\u4f5c\u8f85\u52a9\u7cfb\u7edf
+login_window_username=\u7528\u6237\u540d
+login_window_password=\u5bc6\u7801
+login_window_login=\u767b\u9646
+login_window_checking=\u9a8c\u8bc1\u4e2d
+login_window_wrongpass=\u5bc6\u7801\u9519\u8bef\uff01
+login_window_additional=\u5176\u4ed6\u64cd\u4f5c
+login_window_register=\u6ce8\u518c
+login_window_setting=\u8bbe\u7f6e
+login_window_forgotpass=\u5fd8\u8bb0\u5bc6\u7801
+
+# Main window
+main_window_title=\u69d1\u9a6c\u5de5\u4f5c\u8f85\u52a9\u7cfb\u7edf alpha1
+
+# Toolbar panel
+toolbar_me=\u6211\u7684\u4fe1\u606f 
+toolbar_contact=\u8054\u7cfb\u4eba
+toolbar_workplan=\u5de5\u4f5c\u8ba1\u5212
+toolbar_log=\u5de5\u4f5c\u65e5\u5fd7
+toolbar_sync=\u4e0a\u4f20/\u4e0b\u8f7d
+toolbar_logout=\u9000\u51fa
+toolbar_confirm_message=\u786e\u5b9a\u9000\u51fa\u5417\uff08\u6240\u6709\u7684\u4fee\u6539\u5c06\u88ab\u4fdd\u5b58\uff09\uff1f
+toolbar_confirm_title=\u786e\u5b9a\u9000\u51fa

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-configuration
+ PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory >	
+<property name="dialect">
+       org.hibernate.dialect.HSQLDialect
+</property>
+<property name="connection.driver_class">
+	org.hsqldb.jdbcDriver
+</property>
+<property name="connection.url">
+       jdbc:hsqldb:hsql://localhost/daihorse
+</property>
+<property name="connection.username">sa</property>
+<property name="connection.password" />
+	
+<property name="connection.autocommit">true</property>
+<property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+
+<property name="hbm2ddl.auto">update</property>
+		
+<property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
+<property name="connection.useUnicode">true</property>
+<property name="characterEncoding">UTF-8</property>
+
+<property name="characterEncoding">UTF-8</property>
+<property name="show_sql">true</property>
+	
+<property name="c3p0.min_size">5</property> 
+<property name="c3p0.max_size">30</property> 
+<property name="c3p0.time_out">1800</property> 
+<property name="c3p0.max_statement">50</property> 
+	
+<mapping resource="daihorse/entity/User.hbm.xml" />
+<mapping resource="daihorse/entity/WorkPlan.hbm.xml" />
+<mapping resource="daihorse/entity/Worklog.hbm.xml" />
+<mapping resource="daihorse/entity/Contact.hbm.xml" />
+<mapping resource="daihorse/entity/FriendRequest.hbm.xml" />
+<mapping resource="daihorse/entity/Authorization.hbm.xml" />
+<mapping resource="daihorse/entity/Change.hbm.xml" />
+	
+</session-factory>
+</hibernate-configuration>
+
+

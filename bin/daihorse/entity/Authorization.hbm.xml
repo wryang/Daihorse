@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="daihorse.entity.Authorization" table="AUTHORIZATIONS" batch-size="5">
+		<id name="id" column="ID" type="string">
+		<generator class="uuid.hex"/>
+		</id>
+		
+		<discriminator column="AUTHORIZATION_TYPE" type="string" />
+		
+		<many-to-one name="authorier" column="AUTHORIER_ID" class="daihorse.entity.User" />
+		<many-to-one name="authoriee" column="AUTHORIEE_ID" class="daihorse.entity.User" />
+
+		<subclass name="daihorse.entity.ContactAuthorization" discriminator-value="CTA">
+			<many-to-one name="authorizedContact" column="AUTHORIZEDCONTACT_ID" class="daihorse.entity.Contact" lazy="false" />
+		</subclass>
+		
+		<subclass name="daihorse.entity.WorkPlanAuthorization" discriminator-value="WPA">
+			<many-to-one name="authorizedWorkPlan" column="AUTHORIZEDWORKPLAN_ID" class="daihorse.entity.WorkPlan" lazy="false"/>
+		</subclass>
+	</class>
+</hibernate-mapping>

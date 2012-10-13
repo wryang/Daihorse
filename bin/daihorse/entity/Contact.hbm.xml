@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+  <class name="daihorse.entity.Contact" table="CONTACTS" >
+    <meta attribute="class-description">
+      Represents a single contact.
+      @author Justin Yang
+    </meta>
+    
+    <meta attribute="class-scope">public</meta>
+    
+    <id name="id" type="string" column="ID" length="32" >
+      <generator class="uuid.hex">
+	  </generator>
+    </id>
+	  
+    <discriminator column="CONTACT_TYPE" type="string"  />  
+	
+	<many-to-one name="owner" column="OWNER_ID" class="daihorse.entity.User" lazy="false"/>
+	<many-to-one name="friend" column="FRIEND_ID" class="daihorse.entity.User" lazy="false"/>
+	  
+    <subclass name="daihorse.entity.DirectContact" discriminator-value="DC">
+	   <property name="relationship" column="RELATIONSHIP" type="int" />
+       <property name="description" column="DESCRIPTION" type="string" />
+    </subclass>
+
+    <subclass name="daihorse.entity.PublicContact" discriminator-value="PC" >
+    </subclass>
+     	
+  </class>
+ 
+</hibernate-mapping>

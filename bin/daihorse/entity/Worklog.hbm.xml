@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+  <class name="daihorse.entity.Worklog" table="WORKLOGS" >
+    <meta attribute="class-description">
+      Represents a single worklogrecord.
+      @author Justin Yang
+    </meta>
+    
+    <meta attribute="class-scope">public</meta>
+    
+    <id name="id" type="string" column="ID" length="32" >
+      <generator class="uuid.hex"/>
+    </id>
+		
+	<many-to-one name="user" class="daihorse.entity.User"  lazy="false" column="USER_ID" >
+		
+	</many-to-one>  
+	 
+	<property name="time" type="calendar" column="TIME" /> 
+	<property name="description" type="string" column="DESCRIPTION" />
+	<property name="adminOp" type="boolean" column="ADMINOP" />
+	  
+  </class>
+ 
+</hibernate-mapping>

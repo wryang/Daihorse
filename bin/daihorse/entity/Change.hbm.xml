@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="daihorse.entity.Change" table="CHANGES">
+      <id name="id" type="int" column="ID" >
+        <meta attribute="scope-set">private</meta>
+        <generator class="increment"/>
+      </id>
+	
+	    <property name="objectId" type="string" column="OBJECTID" length="32" />
+		<property name="operationType" type="int" column="OPERATIONTYPE" />
+		<property name="type" type="class" column="TYPE" />
+		
+	</class>
+</hibernate-mapping>
